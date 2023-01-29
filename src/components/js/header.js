@@ -1,6 +1,7 @@
 import SearchComponent from './search';
 import TimesheetComponent from '../TimesheetComponent.vue'
-import { mapActions} from "vuex";
+import { mapActions, mapGetters} from "vuex";
+import Empmixins from '@/mixins/Empmixins';
 
 export default{
     name:'HeaderComponent',
@@ -8,6 +9,10 @@ export default{
         SearchComponent,
         TimesheetComponent
     },
+    computed:{
+        ...mapGetters('authStore',['getUser'])
+    },
+    mixins:[Empmixins],
     data(){
             return{}
     },

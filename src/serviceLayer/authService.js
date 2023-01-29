@@ -1,13 +1,34 @@
 import axios from 'axios'
 
 
-const AuthUser=({success,fail,data})=>{
+const authUser=({success,fail,data})=>{
     const {email,password}=data;
-    axios.get(`https://63d2770c06556a0fdd3ce4c0.mockapi.io/${email}/${password}`)
-    .then((data)=>{
-        success(data);
+    axios.post(`one/emp/authUser?email=${email}&password=${password}`)
+    .then((res)=>{
+        if(res.status===200){
+        success(res);
+        }
+        else if(res.status >=400 && res.status<=499)
+        {
+            fail(res.message)
+        }
     })
     .catch((err)=>{
         fail(err);
     })
 }
+
+const getEmployees=({success,fail})=>{
+    axios.get(`two/emp/showEmployee`)
+    .then((res)=>{
+        if(res.status===200){
+        success(res);
+        }
+    })
+    .catch((err)=>{
+        fail(err);
+    })
+}
+
+export default {authUser,getEmployees}
+

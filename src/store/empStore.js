@@ -42,8 +42,8 @@ const empStore={
                 //     }})
             }
           },
-         DELETE_EMPLOYEE({commit},{data}){
-              commit("deleteEmp",data);
+         DELETE_EMPLOYEE({commit}){
+              commit("deleteEmp");
           }
     },
     getters:{

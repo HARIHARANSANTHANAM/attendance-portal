@@ -1,8 +1,8 @@
 <template>
- <div>
-  <b-navbar toggleable="lg" type="light" variant="light">
+ <div class="sticky-top">
+  <b-navbar toggleable="lg" type="light" variant="light" >
   <b-navbar-nav >
-    <b-navbar-brand href="#" style="display:flex;align-items:center" class="text-secondary">
+    <b-navbar-brand href="/home" style="display:flex;align-items:center" class="text-secondary">
      <img :src="require('@/assets/images.jpeg')" class="d-inline-block align-top ml-4" alt="Kitten" width="40" height="40">
       <b-nav-item href="#">Attendance portal</b-nav-item>
     </b-navbar-brand>
@@ -13,23 +13,28 @@
     <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ms-auto">
+      
+          <button class="mt-2 mb-2 btn button" @click="$bvModal.show('modal-center')">Timesheet</button>
         <b-nav-item-dropdown dropleft id="dropdown-dropleft">
+
           <!-- Using 'button-content' slot -->
           <template #button-content>
     <b-icon icon="person-circle" font-scale="1.5" class="ms-2"></b-icon>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
+        <b-dropdown-item v-if="isManager()"><router-link to="/approval" style="textDecoration:none;color:black">Approval Request</router-link></b-dropdown-item> 
              <b-dropdown-divider></b-dropdown-divider>
-          <b-dropdown-item-button variant="info" @click="logout()">LogOut</b-dropdown-item-button>
-          <b-button class="button" @click="$bvModal.show('modal-center')">Timesheet</b-button>
+                   <b-dropdown-item class="mt-2 mb-2" @click="$bvModal.show('modal-center')">Timesheet</b-dropdown-item>
+          <b-dropdown-item class="button btn-block mt-2 mb-2" @click="logout()">LogOut</b-dropdown-item>
         </b-nav-item-dropdown>
+        <p>{{getUser.email}} </p>
         <b-nav-item>
       </b-nav-item>
       
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-  <b-modal id="modal-center" hide-footer no-close-on-backdrop>
+  <b-modal id="modal-center" hide-footer no-close-on-backdrop title="Timesheet Submission">
     <TimesheetComponent/>
   </b-modal>
 </div>
@@ -40,6 +45,13 @@
 .button{
     background:#11AFB6;
     color:white;
+}
+.btn-block{
+  display: block;
+  width:100%;
+}
+.navbar-expand-lg .navbar-nav{
+  align-items: baseline;
 }
 </style>
 

@@ -8,18 +8,22 @@
         <form @submit="signin">
         <b-row class="my-1">
         <b-col sm="12">
-        <b-p class="text-secondary mb-5">Email*</b-p>
-        <b-form-input id="input-default" type="email" placeholder="EmailId*" v-model="email"></b-form-input>
+        <p class="text-secondary mb-2 mt-2">Email*</p>
+        <b-form-input id="input-default" type="email" placeholder="EmailId" v-model="email"></b-form-input>
         </b-col>
         </b-row>
         <b-row class="my-1">
         <b-col sm="12">
-        <b-p class="text-secondary mb-5">Password*</b-p>
-        <b-form-input id="input-default" type="password" placeholder="Password*" v-model="password" ></b-form-input>
+        <p class="text-secondary mb-2 mt-2">Password*</p>
+        <b-form-input id="input-default" type="password" placeholder="Password" v-model="password" ></b-form-input>
         </b-col>
         </b-row>
         <br>
-        <b-button type="submit" variant="info" class="button btn-block" :disabled="validator()" >Login</b-button>
+        <b-button type="submit" variant="info" v-if="!login" class="button btn-block" :disabled="validator()" >Login</b-button>
+        <b-button class="button btn-block" v-else disabled>
+    <b-spinner small type="grow"></b-spinner>
+    Loading...
+  </b-button>
         </form>
         </div>
         </div>

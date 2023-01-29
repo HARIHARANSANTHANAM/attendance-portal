@@ -1,12 +1,12 @@
 export const summaryFields=[
     {
-      key: "empCode",
+      key: "id",
       label: "EmpID",
       sortable: true,
       sortDirection: "desc",
     },
     {
-      key: "empName",
+      key: "emp_name",
       label: "Name",
       sortable: true,
       class: "text-center",
@@ -24,7 +24,7 @@ export const summaryFields=[
     },
     {
         key: "inType",
-        label: "Working Date",
+        label: "Leave Type",
         sortable: true,
       },
       {

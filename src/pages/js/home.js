@@ -1,18 +1,16 @@
-import PaginationComponent from '../../components/PaginationComponent.vue'
-import {summaryFields} from '../../SummaryData.js';
+import TabComponent from '../../components/TabComponent.vue'
+import tabconfig from '../../Data/tabConfig'
 
 export default{
     name:'HomePage',
     components:{
-      PaginationComponent
+      TabComponent
     },
-    data() {
-        return {
-          rows: 100,
-          perPage: 1,
-          currentPage: 5,
-          fields:summaryFields
-        }
+    data()
+    {
+      return{
+        tabconfig
       }
+    }
 }
 

@@ -4,7 +4,8 @@ export default{
     data(){
         return{
         email:'',
-        password:''
+        password:'',
+        login:false
         }
     },
     methods:{
@@ -16,6 +17,7 @@ export default{
         },
         signin(e){
             e.preventDefault();
+            this.login=true
             this.AUTH_LOGIN({
                 success:this.handlesuccessLogin,
                 fail:this.handlefailLogin,
@@ -26,11 +28,13 @@ export default{
             })
         },
         handlesuccessLogin(data){
+            this.login=false;   
             console.log(data);
             this.$router.push({path:'/home'})
         },
         handlefailLogin(err)
         {
+            this.login=false;
             console.log(err);
         }
     }

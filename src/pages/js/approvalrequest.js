@@ -1,5 +1,6 @@
 import PaginationComponent from '../../components/PaginationComponent.vue'
 import {summaryFields} from '../../SummaryData.js';
+import approval from '../../Data/approval.js'
 export default{
     name:'ApprovalRequestPage',
     components:{
@@ -10,7 +11,14 @@ export default{
           rows: 100,
           perPage: 1,
           currentPage: 5,
-          fields:summaryFields
+          fields:summaryFields,
+          listItems:approval
+        }
+      },
+      methods:{
+        pageNo(page)
+        {
+          console.log(page)
         }
       }
 }

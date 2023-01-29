@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComponent v-if="$route.path!='/'"/>
+    <HeaderComponent v-if="$route.path!='/' &&  $route.path!='/simulator'"/>
     <router-view/>
   </div>
 </template>

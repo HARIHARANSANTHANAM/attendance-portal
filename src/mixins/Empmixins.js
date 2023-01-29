@@ -1,9 +1,7 @@
-import { mapGetters,mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default{
-    ...mapActions('empStore',['SET_EMPLOYEE']),
     computed:{
-        ...mapGetters('empStore',['getEmployee']),
         ...mapGetters('authStore',['getUser'])
     },
     methods:{

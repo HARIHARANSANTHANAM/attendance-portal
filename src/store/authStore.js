@@ -1,20 +1,26 @@
-const mockapi=true;
+const mockapi=false;
 import employees from './mockauth';
+import AuthService from '../serviceLayer/authService';
+
+
+function checkUserInLocalStorage(){
+    return localStorage.getItem('user')?localStorage.getItem('user'):{};
+}
 const authStore={
     state:{
-        employee:{},
+        user:checkUserInLocalStorage(),
        employees
     },
     mutations:{
     setLogin(state,employee)
     {
-        localStorage.setItem('employee',JSON.stringify(employee));
-        state.employee=employee;
+        localStorage.setItem('user',JSON.stringify(employee));
+        state.user=JSON.stringify(employee);
     },
     setLogout(state)
     {
-      localStorage.removeItem('employee');
-      state.employee={}
+      localStorage.removeItem('user');
+      state.user={}
     }
     },
     actions:{
@@ -25,22 +31,30 @@ const authStore={
                 authemp=employees.findIndex((emp)=>{
                     return emp.email=== email && emp.password==password
                 });
+               // const {empCode,role}=employees[authemp];
+
                 commit("setLogin",employees[authemp]);
                 success(employees[authemp]);    
             }
             else{
-                fail();
-                commit("setLogin",employees[authemp]);
+                AuthService.authUser({data,
+                    success:(res)=>{
+                        commit("setLogin",res.data);
+                        success(res.data)
+                        
+                    },
+                    fail:(err)=>{
+                        fail(err)
+                    }})
             }
-           // commit("setLogin",employees[authemp]);
           },
          AUTH_LOGOUT({commit}){
               commit("setLogout");
           }
     },
     getters:{
-        getEmployee(state){
-            return state.user;
+        getUser(state){
+            return JSON.parse(state.user);
           },
     },
     namespaced:true
