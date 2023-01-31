@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { BootstrapVue, IconsPlugin, BootstrapVueIcons } from 'bootstrap-vue'
+import { BootstrapVue, IconsPlugin, BootstrapVueIcons,ToastPlugin  } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
@@ -14,6 +14,7 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(BootstrapVueIcons)
 Vue.use(VueRouter)
+Vue.use(ToastPlugin)
 
 new Vue({
   render: h => h(App),

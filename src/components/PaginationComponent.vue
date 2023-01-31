@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-<button class="btn button" @click="savePDF()">Save PDF</button>
+    <div class="header"><button class="btn button" type="button" @click="savePDF()">Save PDF</button></div>
     <div class="table-responsive">
       <b-table
         striped
@@ -37,5 +37,9 @@
 .button{
     background:#11AFB6;
     color:white;
+}
+.header{
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

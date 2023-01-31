@@ -5,11 +5,16 @@ export default {
   data() {
     return {
         date:'',
-      disabledDates: holidays
+      disabledDates: holidays,
     }
   },
+
   props:{
     required:false,
+    max:{
+      type:String,
+      default:new Date().toISOString().split('T')[0]
+    }
   },
   methods: {
     dateDisabled(ymd, date) {

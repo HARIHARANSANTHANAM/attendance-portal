@@ -1,14 +1,16 @@
 export default [{
     id:101,
-    emp_name:"Hariharan",
+    empCode:"E101",
+    empName:"Hariharan",
     hours:20,
     inType:'',
-    status:'Approval',
+    status:'Approved',
    workingDate:"03/02/2023"
   },
   {
       id:102,
-      emp_name:"Vasunthra",
+    empCode:"E102",
+      empName:"Vasunthra",
       hours:8, 
       inType:'WFH',
       status:'Pending',
@@ -16,7 +18,8 @@ export default [{
     },
     {
         id:103,
-        emp_name:"Vijay",
+        empCode:"E103",
+        empName:"Vijay",
         hours:9,
         inType:'',
         status:'Approved',
@@ -24,15 +27,17 @@ export default [{
       },
       {
         id:101,
-        emp_name:"Hariharan",
+        empCode:"E101",
+        empName:"Hariharan",
         hours:20,
         inType:'',
-        status:'Approval',
+        status:'Approved',
        workingDate:"03/02/2023"
       },
       {
           id:102,
-          emp_name:"Vasunthra",
+          empCode:"E102",
+          empName:"Vasunthra",
           hours:8, 
           inType:'WFH',
           status:'Pending',
@@ -40,7 +45,8 @@ export default [{
         },
         {
             id:103,
-            emp_name:"Vijay",
+            empCode:"E103",
+            empName:"Vijay",
             hours:9,
             inType:'',
             status:'Approved',
@@ -48,15 +54,17 @@ export default [{
           },
           {
             id:101,
-            emp_name:"Hariharan",
+            empCode:"E101",
+            empName:"Hariharan",
             hours:20,
             inType:'',
-            status:'Approval',
+            status:'Approved',
            workingDate:"03/02/2023"
           },
           {
               id:102,
-              emp_name:"Vasunthra",
+              empCode:"E102",
+              empName:"Vasunthra",
               hours:8, 
               inType:'WFH',
               status:'Pending',
@@ -64,7 +72,8 @@ export default [{
             },
             {
                 id:103,
-                emp_name:"Vijay",
+                empCode:"E103",
+                empName:"Vijay",
                 hours:9,
                 inType:'',
                 status:'Approved',
@@ -72,15 +81,17 @@ export default [{
               },
               {
                 id:101,
-                emp_name:"Hariharan",
+                empCode:"E101",
+                empName:"Hariharan",
                 hours:20,
                 inType:'',
-                status:'Approval',
+                status:'Approved',
                workingDate:"03/02/2023"
               },
               {
                   id:102,
-                  emp_name:"Vasunthra",
+                  empCode:"E102",
+                  empName:"Vasunthra",
                   hours:8, 
                   inType:'WFH',
                   status:'Pending',
@@ -88,7 +99,8 @@ export default [{
                 },
                 {
                     id:103,
-                    emp_name:"Vijay",
+                    empCode:"E103",
+                    empName:"Vijay",
                     hours:9,
                     inType:'',
                     status:'Approved',

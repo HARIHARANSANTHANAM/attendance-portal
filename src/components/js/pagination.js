@@ -24,7 +24,9 @@ export default{
               head: [this.fields.map(field => field.label)],
               body: this.currentPageData.map(item => this.fields.map(field => item[field.key]))
             })
+
             pdf.save(`page-${this.currentPage}.pdf`)
+
           }
         },
     props:{

@@ -21,8 +21,8 @@
           <template #button-content>
     <b-icon icon="person-circle" font-scale="1.5" class="ms-2"></b-icon>
           </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-        <b-dropdown-item v-if="isManager()"><router-link to="/approval" style="textDecoration:none;color:black">Approval Request</router-link></b-dropdown-item> 
+        <b-dropdown-item v-if="$route.path!='/home'"><router-link to="/home" style="textDecoration:none;color:black">Summary</router-link></b-dropdown-item> 
+        <b-dropdown-item v-if="isManager() && $route.path!='/approval'"><router-link to="/approval" style="textDecoration:none;color:black">Approval Request</router-link></b-dropdown-item> 
              <b-dropdown-divider></b-dropdown-divider>
                    <b-dropdown-item class="mt-2 mb-2" @click="$bvModal.show('modal-center')">Timesheet</b-dropdown-item>
           <b-dropdown-item class="button btn-block mt-2 mb-2" @click="logout()">LogOut</b-dropdown-item>

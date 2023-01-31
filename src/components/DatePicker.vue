@@ -5,6 +5,7 @@
     @input="selectedDate" 
     :date-disabled-fn="dateDisabled"
    :aria-required="required"
+   :max="max"
   />
   </div>
 </template>

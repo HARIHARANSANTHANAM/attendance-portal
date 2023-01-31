@@ -3,8 +3,8 @@ import axios from 'axios'
 
 const timeSheetSubmission=({success,fail,data})=>{
    // const {empCode,inTime,outTime}=data;
-
-    axios.post(`timesheet/time/addTimesheet`,data)
+    console.log("data : "+data)
+    axios.post(`one/time/addTimesheet`,data)
     .then((res)=>{
         if(res.status===200){
         success(res);
@@ -31,12 +31,12 @@ const fetchSummary=({success,fail,data})=>{
 const calculatedHours=({success,fail,data})=>{
      const {empCode,workingDate}=data;
     
-     axios.get(`https://1603-49-249-56-118.ap.ngrok.io/time/calculateHours?empCode=${empCode}&workingDate=${workingDate}`,data)
+     axios.get(`one/time/calculateHours?empCode=${empCode}&workingDate=${workingDate}`,data)
      .then((res)=>{
          if(res.status===200){
          success(res);
          }
-     })
+     }) 
      .catch((err)=>{
          fail(err);
      })

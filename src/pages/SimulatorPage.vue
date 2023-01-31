@@ -7,17 +7,17 @@
            <form @submit.prevent="logger" class="">
             <b-row class="my-1">
             <b-col sm="12">
+
             <p class="text-secondary mb-2 mt-2">EmpCode</p>
-             <select v-model="empCode" placeholder="EmpCode" required="true">
-            <option v-for="(employee,index) in setEmpcode.data" :key="index" >
-                    {{employee}}
-            </option>
-            </select>
+            <input type="text" list="employee" v-model="empCode" placeholder="EmpCode" required/>
+        <datalist id="employee">
+        <option v-for="(employee,index) in setEmpcode.data" :key="index"> {{employee}}</option>
+</datalist>
             </b-col>
             </b-row>
 
             <br/>
-             <input id="input-default"  class="" type="datetime-local" v-model="checkIn" placeholder="CheckIn" required="true"/>
+             <input id="input-default"  :min="new Date().toISOString().split('T')[0]" class="" type="datetime-local" v-model="checkIn" placeholder="CheckIn" required="true"/>
              <br/>
             <input id="input-default" type="datetime-local" :min="checkIn" placeholder="CheckOut"  v-model="checkOut" required="true">
             <br/><br/>

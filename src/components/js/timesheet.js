@@ -28,7 +28,6 @@ export default{
           getSelectedDate(date)
           {
             const user=this.getUser
-            alert(date)
             console.log("date: "+date)
             this.workingDate=date;
             this.checkIn=new Date(date);
@@ -47,7 +46,6 @@ export default{
             })
           },
         getInfo(){
-            console.log(this.getUser)
             let daycount=1;
            if(this.$data.leaveType==="Halfday")
            {
@@ -67,22 +65,40 @@ export default{
             period: this.period !== ''?this.$data.period==="first-half"?"FIRST_HALF":"SECOND_HALF":null,
           }
             if(confirm("Are you sure want to submit the sheet?")){
-            console.log(data)
-            TimesheetService.timeSheetSubmission({
-              success:(res)=>{
-                  console.log(res);
-              },
-              fail:(err)=>{
-                console.log(err)
-              },
-              data
-            })
+                this.addToTimesheet(data);
             }
-
-            
         },
 
-        
+        addToTimesheet(data)
+        {
+          TimesheetService.timeSheetSubmission({
+            success:(res)=>{
+                alert("Submitted Successfully..")
+                console.log(res);
+            },
+            fail:(err)=>{
+              alert("Please try again later!")
+              console.log(err)
+            },
+            data
+          })
+        },
+
+        isFullfDay(){
+            return this.productiveHours!='' && this.productiveHours<=3;
+        },
+        isHalfDay(){
+          return this.productiveHours!='' && this.productiveHours>3 && this.productiveHours<=6;
+      },
+        isLeave(){
+          return this.productiveHours!='' && this.productiveHours>=0 && this.productiveHours<6;
+        },
+        isWFH(){
+          return this.WFH;
+        },
+        isCalculatedHours(){
+          return this.calculatedHours!='';
+        }
     },
     computed:{
       ...mapGetters('authStore',['getUser']),

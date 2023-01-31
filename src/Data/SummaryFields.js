@@ -1,12 +1,12 @@
 export const summaryFields=[
     {
-      key: "id",
-      label: "EmpID",
+      key: "empCode",
+      label: "Employee code",
       sortable: true,
-      sortDirection: "desc",
+      class: "text-center",
     },
     {
-      key: "emp_name",
+      key: "empName",
       label: "Name",
       sortable: true,
       class: "text-center",

@@ -1,6 +1,8 @@
 import authService from "@/serviceLayer/authService";
 import { mapActions, mapGetters } from "vuex"
 
+
+
 export default{
     name:'Simulator',
     data(){
@@ -32,6 +34,13 @@ export default{
                 const checkOut=this.checkOut;
                 const data={empCode,inTime:checkIn,outTime:checkOut}
                 console.log(data)
+                // this.$bvToast.toast("data is added", {
+                //     title: 'Error',
+                //     variant: 'danger',
+                //     solid: true,
+                //     delay:2000
+                //   })
+                this.clearFields();
                 this.SIMULATOR_LOGIN({
                     success:this.handlesuccessLogin,
                     fail:this.handlefailLogin,
@@ -45,12 +54,13 @@ export default{
             },
             handlesuccessLogin(data){
                 this.clearFields();
-                console.log(data);
+                alert(data)
             },
             handlefailLogin(err)
             {
                 this.clearFields();
-                console.log(err);
+                console.log(err.response.data);
+                alert(err.response.data);
             }
     }
 }
